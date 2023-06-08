@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Batang&family=Hahmlet&display=swap" rel="stylesheet">
+
+  <!-- font awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+
+  <style>
+    * {
+      font-family: 'Gowun Batang', serif;
+      padding: 0px;
+      margin: 0px;
+      list-style: none;
+      text-align: center;
+    }
+    html, body {
+        margin: 0;
+        height: 100%;
+    }
+    html {
+      background-image: url(./galaxy.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    #wrap {
+      width: 700px;
+      height: 100%;
+      /* border: 2px dashed blue; */
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      align-items: center;
+    }
+    #title {
+      /* border: 2px  dashed green; */
+      background-color: rgba(255, 255, 255, 0.336);
+      width: 100%;
+      padding: 30px 0;
+      border-radius: 0px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div id="wrap">
+    <div id="title">
+      <div>
+        <p style="margin-top: 40px; font-size: 20px; font-weight: bold;">[종강언제오조]</p>
+        <h1 style="margin-bottom: 40px; font-size: 60px;">파일 업로드</h1>
+      </div>
+      <div>
+        <form style="margin-bottom: 40px;" id="form" action="/upload" method="post" enctype="multipart/form-data">
+          <input type="file" name="text1" style="font-size: 20px; font-weight: bold;"/>
+          <button type="submit" style="font-size: 20px; width: 100px; font-weight: bold;">업로드</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
