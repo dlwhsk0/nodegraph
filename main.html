@@ -3,22 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>그래프 테스트</title>
+    <title>데이터 시각화 그래프</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="./graph.js"></script>
-    
-    <!-- google fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Batang&family=Hahmlet&display=swap" rel="stylesheet">
 
-  <!-- font awesome-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     
     <style>
-        *{
-            font-family: 'Gowun Batang', serif;
-        }
         .center {
             text-align: center;
         }
@@ -37,32 +27,49 @@
             width: 90px;
             margin: 0 30px;
         }
+        .top {
+            background-image: url(./galaxy.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 20px 30px;
+        }
+        .btn{
+            padding: 10px 30px;
+            font-size: 20px;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            font-weight: bold;         
+        }
+        
     </style>
 
 </head>
 <body>
+<div class="top">
+    <div >
+        <div class="container" style="margin: 15px;">
+            <button class="btn" onclick="sendAjax(1)">core1</button>
+            <button class="btn" onclick="sendAjax(2)">core2</button>
+            <button class="btn" onclick="sendAjax(3)">core3</button>
+            <button class="btn" onclick="sendAjax(4)">core4</button>
+            <button class="btn" onclick="sendAjax(5)">core5</button>
+        </div>
+        <div class="container" style="margin: 15px;">
+            <button class="btn" onclick="sendAjax(6)">task1</button>
+            <button class="btn" onclick="sendAjax(7)">task2</button>
+            <button class="btn" onclick="sendAjax(8)">task3</button>
+            <button class="btn" onclick="sendAjax(9)">task4</button>
+            <button class="btn" onclick="sendAjax(10)">task5</button>
+        </div>
+        
+    </div>
+
+</div>
+
 <div class="main">
-    <div class="center">
-        <h1>Chart.js</h1>
-    </div>
-
-    <div>
-        <div class="container" style="margin: 15px;">
-            <button onclick="sendAjax(1)">core1</button>
-            <button onclick="sendAjax(2)">core2</button>
-            <button onclick="sendAjax(3)">core3</button>
-            <button onclick="sendAjax(4)">core4</button>
-            <button onclick="sendAjax(5)">core5</button>
-        </div>
-        <div class="container" style="margin: 15px;">
-            <button onclick="sendAjax(6)">task1</button>
-            <button onclick="sendAjax(7)">task2</button>
-            <button onclick="sendAjax(8)">task3</button>
-            <button onclick="sendAjax(9)">task4</button>
-            <button onclick="sendAjax(10)">task5</button>
-        </div>
-    </div>
-
     <div class="container">
         <hr style="width: 1200px;"/>
     </div>
@@ -71,7 +78,7 @@
         <h1 id="title">Core1의 Task별 수행능력</h1>
     </div>
 
-    <div class="container">
+    <div class="container graph" >
         <div class="center">
             <h2>Vertical Bar</h2>
             <div class="chart-container">
@@ -86,7 +93,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container graph">
         <div class="center">
             <h2>Horizontal Bar</h2>
             <div class="chart-container">
