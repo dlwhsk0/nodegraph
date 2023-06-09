@@ -51,18 +51,18 @@
 <div class="top">
     <div >
         <div class="container" style="margin: 15px;">
-            <button class="btn" onclick="sendAjax(1)">core1</button>
-            <button class="btn" onclick="sendAjax(2)">core2</button>
-            <button class="btn" onclick="sendAjax(3)">core3</button>
-            <button class="btn" onclick="sendAjax(4)">core4</button>
-            <button class="btn" onclick="sendAjax(5)">core5</button>
+            <button id="btn1" class="btn" onclick="sendAjax(1)">core1</button>
+            <button id="btn2" class="btn" onclick="sendAjax(2)">core2</button>
+            <button id="btn3" class="btn" onclick="sendAjax(3)">core3</button>
+            <button id="btn4" class="btn" onclick="sendAjax(4)">core4</button>
+            <button id="btn5" class="btn" onclick="sendAjax(5)">core5</button>
         </div>
         <div class="container" style="margin: 15px;">
-            <button class="btn" onclick="sendAjax(6)">task1</button>
-            <button class="btn" onclick="sendAjax(7)">task2</button>
-            <button class="btn" onclick="sendAjax(8)">task3</button>
-            <button class="btn" onclick="sendAjax(9)">task4</button>
-            <button class="btn" onclick="sendAjax(10)">task5</button>
+            <button id="btn6" class="btn" onclick="sendAjax(6)">task1</button>
+            <button id="btn7" class="btn" onclick="sendAjax(7)">task2</button>
+            <button id="btn8" class="btn" onclick="sendAjax(8)">task3</button>
+            <button id="btn9" class="btn" onclick="sendAjax(9)">task4</button>
+            <button id="btn10" class="btn" onclick="sendAjax(10)">task5</button>
         </div>
         
     </div>
@@ -78,16 +78,17 @@
         <h1 id="title">Core1의 Task별 수행능력</h1>
     </div>
 
+    <!-- 그래프 추가  -->
     <div class="container graph" >
         <div class="center">
             <h2>Vertical Bar</h2>
-            <div class="chart-container">
+            <div id="graph1" class="chart-container">
                 <canvas id="test1" style="height:350px; width:500px"></canvas>
             </div>
         </div>
         <div class="center">
             <h2>Radar</h2>
-            <div class="chart-container">
+            <div id="graph2" class="chart-container">
                 <canvas id="test2" style="height:350px; width:500px"></canvas>
             </div>
         </div>
@@ -95,14 +96,14 @@
 
     <div class="container graph">
         <div class="center">
-            <h2>Horizontal Bar</h2>
-            <div class="chart-container">
+            <h2>Line</h2>
+            <div id="graph3" class="chart-container">
                 <canvas id="test3" style="height:350px; width:500px"></canvas>
             </div>
         </div>
         <div class="center">
-            <h2>Line</h2>
-            <div class="chart-container">
+            <h2>Horizontal Bar</h2>
+            <div id="graph4" class="chart-container">
                 <canvas id="test4" style="height:350px; width:500px"></canvas>
             </div>
         </div>

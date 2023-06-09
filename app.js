@@ -79,6 +79,7 @@ app.post('/upload', upload.single('text1'), (req, res) => { // 인풋 텍스트 
     console.log('Connected to MySQL database');
   });
   
+  
   // 테이블 생성 쿼리
   const createTableQueries = [
     //파일의 전체 데이터 값이 저장 될 user테이블

@@ -16,45 +16,34 @@ function sendAjax(btn) {
 
         console.log("그래프 실행");
         console.log("가져온 데이터 res:", res);
+        // var check = res.resData.core[0];
+        // var check = check[0];
+        // console.log("데이터 테스트:", check);
+        
 
         // 차트 제목 수정
         var strTitle;
+        var dataArray;
+        var label;
         if(btn <= 5) { // core1~core5
             strTitle = "Core" + btn + "의 Task별 수행능력";
+            dataArray = Object.values(res.resData.core);
+            label = ['task1', 'task2', 'task3', 'task4', 'task5'];
         } else { // task1~task5
             btn = btn-5;
             strTitle = "Task" + btn + "의 Core별 수행능력";
+            dataArray = Object.values(res.resData.task);
+            label = ['core1', 'core2', 'core3', 'core4', 'core5'];
         }
         var title = document.getElementById('title');
         title.textContent = strTitle;
-
-        /**
-         * 수행 과정
-         * 1. core1 ~ core5, task1 ~ task5 가 차례대로 담긴 dataArray 만들기
-         *    EX) core2 = [task1 ~ task5, task1 ~ task5, ...] 10개 테이블이 한 줄로 들어가있음
-         * 2. 눌린 버튼의 번호를 받아와서 거기에 있는 데이터 꺼내서 core/task 별로 나누기
-         *    EX) data = [
-         *          [10개 테이블에서의 core2의 task1 값들],
-         *          [10개 테이블에서의 core2의 task2 값들],
-         *          ...
-         *        ];
-         * 3. 꺼낸 데이터로 col별 MAX, MIN, AVG, STD 구해서 개별 배열로 저장하기
-         * 
-         * res 형태
-         * res : resData 
-        **/
-        // console.log("res: ", res);
-        // console.log("core:", res.resData.core);
-        // console.log("task:", res.resData.task);
-        
-        var dataArray;
-        if(btn <= 5) { // core1~core5
-            dataArray = Object.values(res.resData.core);
-        } else { // task1~task5
-            dataArray = Object.values(res.resData.task);
-        }
         var row = dataArray[btn-1];
         var data = [];
+
+
+        console.log("row: ", row);
+        // console.log("core:", res.resData.core);
+        // console.log("task:", res.resData.task);
 
         // task1~task5/core1~core5 나눠 저장하기
         for(let i = 1; i <= 5; i++) {
@@ -117,8 +106,6 @@ function sendAjax(btn) {
         }
 
         // chart.js 그래프 띄우기
-        var label = ['task1', 'task2', 'task3', 'task4', 'task5'];
-
         var ctx = document.getElementById('test1').getContext('2d');
         var mychart = new Chart(ctx, {
             type: 'bar',
@@ -162,6 +149,7 @@ function sendAjax(btn) {
                 }]
             },
             options: {
+                events: ['click'],
                 animation: {
                     animateScale: true
                 },
@@ -174,7 +162,7 @@ function sendAjax(btn) {
                         }
                     ]
                 }
-            }
+            },
         });
 
         var ctx = document.getElementById('test2').getContext('2d');
@@ -213,6 +201,7 @@ function sendAjax(btn) {
                 }]
             },
             options: {
+                events: ['click'],
                 animation: {
                     animateScale: true
                 },
@@ -236,6 +225,7 @@ function sendAjax(btn) {
                 labels: label,
                 datasets: [{
                     label: 'MAX',
+                    fill: false,
                     lineTension: 0, // 숫자가 높을 수록 둥글어짐
                     backgroundColor: 'rgba(108, 241, 255, 0.4)',
                     borderColor: 'rgba(108, 241, 255, 0.8)',
@@ -244,6 +234,7 @@ function sendAjax(btn) {
                     data: maxList
                 }, {
                     label: 'MIN',
+                    fill: false,
                     lineTension: 0, // 숫자가 높을 수록 둥글어짐
                     backgroundColor: 'rgba(255, 127, 239, 0.4)',
                     borderColor: 'rgba(255, 127, 239, 0.8)',
@@ -252,6 +243,7 @@ function sendAjax(btn) {
                     data: minList
                 }, {
                     label: 'AVG',
+                    fill: false,
                     lineTension: 0, // 숫자가 높을 수록 둥글어짐
                     backgroundColor: 'rgba(44, 255, 94, 0.4)',
                     borderColor: 'rgba(44, 255, 94, 0.8)',
@@ -260,6 +252,7 @@ function sendAjax(btn) {
                     data: avgList
                 }, {
                     label: 'STD',
+                    fill: false,
                     lineTension: 0, // 숫자가 높을 수록 둥글어짐
                     backgroundColor: 'rgba(192, 95, 255, 0.4)',
                     borderColor: 'rgba(192, 95, 255, 0.8)',
@@ -269,6 +262,7 @@ function sendAjax(btn) {
                 }]
             },
             options: {
+                events: ['click'],
                 animation: {
                     animateScale: true
                 },
@@ -313,6 +307,7 @@ function sendAjax(btn) {
                 }]
             },
             options: {
+                events: ['click'],
                 animation: {
                     animateScale: true
                 },
@@ -334,5 +329,3 @@ function sendAjax(btn) {
         console.log('차트 생성 중 에러 발생: ', err);
     });
 }
-
-
